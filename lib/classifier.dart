@@ -23,7 +23,7 @@ abstract class Classifier {
 
   final String _labelsFileName = 'assets/labels.txt';
 
-  final int _labelsLength = 1001;
+  final int _labelsLength = 20;
 
   late var _probabilityProcessor;
 
@@ -94,6 +94,7 @@ abstract class Classifier {
     print('Time to load image: $pre ms');
 
     final runs = DateTime.now().millisecondsSinceEpoch;
+    print(_inputImage.buffer.toString());
     interpreter.run(_inputImage.buffer, _outputBuffer.getBuffer());
     final run = DateTime.now().millisecondsSinceEpoch - runs;
 
