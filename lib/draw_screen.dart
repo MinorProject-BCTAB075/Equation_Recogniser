@@ -68,7 +68,7 @@ class _RecognizerScreen extends State<RecognizerScreen> {
                     },
                     child: ClipRect(
                       child: CustomPaint(
-                        size: Size(kCanvasSize, kCanvasSize),
+                        size: Size(kCanvasSize + 1000, kCanvasSize),
                         painter: drawingPainter(
                           offsetPoints: points,
                         ),
@@ -89,6 +89,12 @@ class _RecognizerScreen extends State<RecognizerScreen> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() => points.clear());
+        },
+        child: Icon(Icons.delete),
       ),
     );
   }
