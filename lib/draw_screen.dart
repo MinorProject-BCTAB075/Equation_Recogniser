@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:equation_recognizer/constant.dart';
 import 'package:equation_recognizer/draw_painter.dart';
 //import 'package:equation_recognizer/pic.dart';
+import 'package:equation_recognizer/request.dart';
 
 class RecognizerScreen extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -95,9 +96,7 @@ class _RecognizerScreen extends State<RecognizerScreen> {
               width: 200.0,
               height: 100.0,
               child: ElevatedButton(
-                onPressed: () {
-                  _random();
-                },
+                onPressed: HttpService.login(points.),
                 child: Text('submit'),
               ),
             ),
