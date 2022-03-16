@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:equation_recognizer/constant.dart';
 import 'package:equation_recognizer/draw_painter.dart';
+//import 'package:equation_recognizer/pic.dart';
 
 class RecognizerScreen extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -13,10 +14,19 @@ class RecognizerScreen extends StatefulWidget {
 }
 
 class _RecognizerScreen extends State<RecognizerScreen> {
+  var _index = 0;
+  void _random() {
+    setState(() {
+      _index = _index + 1;
+      _index %= 2;
+    });
+  }
+
   List<Offset> points = <Offset>[];
 
   @override
   Widget build(BuildContext context) {
+    var _question = ['', 'who is yaman?', 'why is yaman hero'];
     return Scaffold(
       appBar: AppBar(
         // ignore: prefer_const_constructors
@@ -68,7 +78,7 @@ class _RecognizerScreen extends State<RecognizerScreen> {
                     },
                     child: ClipRect(
                       child: CustomPaint(
-                        size: Size(kCanvasSize + 1000, kCanvasSize),
+                        size: Size(kCanvasSize, kCanvasSize),
                         painter: drawingPainter(
                           offsetPoints: points,
                         ),
@@ -78,15 +88,33 @@ class _RecognizerScreen extends State<RecognizerScreen> {
                 },
               ),
             ),
+            Container(
+              padding: EdgeInsets.all(4),
+              alignment: Alignment.center,
+              color: Colors.white,
+              width: 200.0,
+              height: 100.0,
+              child: ElevatedButton(
+                onPressed: () {
+                  _random();
+                },
+                child: Text('submit'),
+              ),
+            ),
             Expanded(
               flex: 1,
               child: Container(
-                padding: EdgeInsets.all(16),
-                color: Colors.blue,
+                child: Text(_question[_index]),
                 alignment: Alignment.center,
-                child: Text('Footer'),
+                width: MediaQuery.of(context).size.width / 2,
+                decoration: new BoxDecoration(
+                  border: new Border.all(
+                    width: 3.0,
+                    color: Colors.orange,
+                  ),
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),
