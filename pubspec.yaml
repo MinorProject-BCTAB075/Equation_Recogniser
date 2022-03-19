@@ -25,5 +25,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/detect.tflite
-    - assets/labelmap.txt
+    - assets/images/

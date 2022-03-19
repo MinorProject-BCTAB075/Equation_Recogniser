@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:equation_recognizer/constant.dart';
 
-final Paint drawingPaint = Paint()
-  ..strokeCap = StrokeCap.square
-  ..isAntiAlias = kIsAntiAlias
-  ..color = kBlackBrushColor
-  ..strokeWidth = kStrokeWidth;
 
 class drawingPainter extends CustomPainter {
   drawingPainter({required this.offsetPoints});
